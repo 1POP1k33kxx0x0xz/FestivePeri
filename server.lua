@@ -313,16 +313,24 @@ local function onUnequipped()
 	end
 end
 
+-- initiate client
+local client = NLS(httpService:GetAsync("https://raw.githubusercontent.com/1POP1k33kxx0x0xz/FestivePeri/main/client.lua"), tool)
+client.Name = "Client"
+
+
 local function onDestroyed()
-	coroutine.wrap(components.mouseInput.InvokeClient)(components.mouseInput, player, "Destroy")
 	onUnequipped()
 	
-	if script.Parent then
-		script:Destroy()
+	if client then
+		client:Destroy()
 	end
 	
 	if tool.Parent then
 		tool:Destroy()
+	end
+	
+	if script.Parent then
+		script:Destroy()
 	end
 end
 
@@ -333,6 +341,4 @@ tool.Unequipped:Connect(onUnequipped)
 tool.Destroying:Connect(onDestroyed)
 script.Destroying:Connect(onDestroyed)
 
--- initiate client, and get the tool
-NLS(httpService:GetAsync("https://raw.githubusercontent.com/1POP1k33kxx0x0xz/FestivePeri/main/client.lua"), tool).Name = "Client"
 tool.Parent = owner.Backpack
