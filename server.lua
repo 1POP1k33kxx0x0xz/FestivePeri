@@ -326,11 +326,11 @@ local function onDestroyed()
 	end
 	
 	if tool.Parent then
-		tool:Destroy()
+		task.defer(game.Destroy, tool)
 	end
 	
 	if script.Parent then
-		script:Destroy()
+		task.defer(game.Destroy, script)
 	end
 end
 
