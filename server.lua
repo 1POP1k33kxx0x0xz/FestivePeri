@@ -226,6 +226,9 @@ local function createOrnamentBall(destroyTime, playerBall)
 		for _,v in ipairs(char:GetChildren()) do
 			if not v:IsA("Humanoid") then
 				local clone = v:Clone()
+					
+				if not clone then continue end
+					
 				clone.Parent = fakeChar
 
 				if clone:IsA("BasePart") then
