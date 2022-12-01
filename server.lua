@@ -288,8 +288,10 @@ local function ornamentCharge()
 	
 	tool.Enabled = false
 	
-	activeAnims[4]:Play()
-	activeAnims[4]:GetMarkerReachedSignal("Fire"):Wait()
+	if activeAnims then
+		activeAnims[4]:Play()
+		activeAnims[4]:GetMarkerReachedSignal("Fire"):Wait()
+	end
 	
 	local ornamentBall = createOrnamentBall(5)
 	local direction = humanoidRoot.CFrame.LookVector * 20
