@@ -69,7 +69,7 @@ remote.OnClientInvoke = function(status, ornament)
 			end
 			
 			if humanoid.MoveDirection.Magnitude > 0 then
-				ornament.Velocity += humanoid.MoveDirection * 2
+				ornament.Velocity = ornament.Velocity + humanoid.MoveDirection * 2
 			end
 		end)
 	end
